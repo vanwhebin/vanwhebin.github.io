@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="PHP,Redis," />
 
 
 
@@ -84,15 +84,40 @@
 
 
 
-<meta name="description" content="fullfillment is not equal as joy! it brings more.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄鸟于飞">
-<meta property="og:url" content="http://vanwhebin.com/archives/index.html">
+<meta name="description" content="安装环境：CentOS 6.5 
+php版本：5.3.27
+redis扩展包版本：2.2.4
+redis安装包版本：2.6.14
+
+第一步：获取准备好安装包
+第二步：上传扩展包到php的拓展目录下 一般是 /usr/local/php/include/php/ext,解压后，看到文件config.m4，如果没有这个文件，后续操作可能会报错
+第三步：在加压后的扩展文件目录下，使用phpize来生成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在CentOS 6.5下手动安装php的redis扩展">
+<meta property="og:url" content="http://vanwhebin.com/2017/01/22/redis_extension_installation/index.html">
 <meta property="og:site_name" content="黄鸟于飞">
-<meta property="og:description" content="fullfillment is not equal as joy! it brings more.">
+<meta property="og:description" content="安装环境：CentOS 6.5 
+php版本：5.3.27
+redis扩展包版本：2.2.4
+redis安装包版本：2.6.14
+
+第一步：获取准备好安装包
+第二步：上传扩展包到php的拓展目录下 一般是 /usr/local/php/include/php/ext,解压后，看到文件config.m4，如果没有这个文件，后续操作可能会报错
+第三步：在加压后的扩展文件目录下，使用phpize来生成">
+<meta property="og:image" content="http://vanwhebin.com/public/images/redis_ext.jpg">
+<meta property="og:image" content="http://vanwhebin.com/public/images/redis_ext-1.jpg">
+<meta property="og:updated_time" content="2017-02-10T01:50:43.490Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄鸟于飞">
-<meta name="twitter:description" content="fullfillment is not equal as joy! it brings more.">
+<meta name="twitter:title" content="如何在CentOS 6.5下手动安装php的redis扩展">
+<meta name="twitter:description" content="安装环境：CentOS 6.5 
+php版本：5.3.27
+redis扩展包版本：2.2.4
+redis安装包版本：2.6.14
+
+第一步：获取准备好安装包
+第二步：上传扩展包到php的拓展目录下 一般是 /usr/local/php/include/php/ext,解压后，看到文件config.m4，如果没有这个文件，后续操作可能会报错
+第三步：在加压后的扩展文件目录下，使用phpize来生成">
+<meta name="twitter:image" content="http://vanwhebin.com/public/images/redis_ext.jpg">
 
 
 
@@ -120,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://vanwhebin.com/archives/"/>
+  <link rel="canonical" href="http://vanwhebin.com/2017/01/22/redis_extension_installation/"/>
 
 
 
 
 
-  <title> 归档 | 黄鸟于飞 </title>
+  <title> 如何在CentOS 6.5下手动安装php的redis扩展 | 黄鸟于飞 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -147,7 +172,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -229,140 +254,186 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 3 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/24/emercial-site-design-build/" itemprop="url">
-              
-                <span itemprop="name">大型电商网站的架构和实施</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-24T00:40:29+08:00"
-              content="2017-01-24" >
-          01-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/23/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-23T22:26:20+08:00"
-              content="2017-01-23" >
-          01-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/22/redis_extension_installation/" itemprop="url">
-              
-                <span itemprop="name">如何在CentOS 6.5下手动安装php的redis扩展</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-22T23:42:00+08:00"
-              content="2017-01-22" >
-          01-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://vanwhebin.com/2017/01/22/redis_extension_installation/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="vanwhebin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="黄鸟于飞">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="黄鸟于飞" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何在CentOS 6.5下手动安装php的redis扩展
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-22T23:42:00+08:00">
+                2017-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>安装环境：CentOS 6.5 </li>
+<li>php版本：5.3.27</li>
+<li>redis扩展包版本：2.2.4</li>
+<li>redis安装包版本：2.6.14</li>
+</ul>
+<p>第一步：<br>获取准备好安装包</p>
+<p>第二步：上传扩展包到php的拓展目录下 一般是 /usr/local/php/include/php/ext,解压后，看到文件config.m4，如果没有这个文件，后续操作可能会报错</p>
+<p>第三步：在加压后的扩展文件目录下，使用phpize来生成配置文件<br>/usr/local/php/bin/phpize 生成configure文件</p>
+<p>第四步：按照配置文件安装扩展，得到redis扩展最后的安装文件目录<br>./configure –with-php-config=/usr/local/php/bin/php-config</p>
+<p>make &amp;&amp; make install</p>
+<p>第五步：得到redis扩展包的最后的安装文件目录之后，在php.ini文件中修改配置项，打开redis扩展<br>如果没有相应的redis项，需要手动添加,</p>
+<p><img src="http://vanwhebin.com/public/images/redis_ext.jpg"></p>
+<p>别忘记重启apache，就可以看到<br><img src="http://vanwhebin.com/public/images/redis_ext-1.jpg"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/23/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -370,6 +441,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -552,11 +627,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
@@ -589,6 +662,10 @@
 
   
 
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
   
 
 
