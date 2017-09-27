@@ -18,8 +18,6 @@
 <link rel="stylesheet" href="/css/theme.css">
 
   
-    <meta name="keywords" content="PHP, Redis" />
-  
 
   
     <link rel="alternate" href="/atom.xml" title="黄鸟于飞" type="application/atom+xml" />
@@ -29,7 +27,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
 
-  <title>如何在CentOS 6.5下手动安装php的redis扩展 - 黄鸟于飞</title>
+  <title>价值博客 - 黄鸟于飞</title>
 </head>
 
   <body class="theme-body">
@@ -50,57 +48,38 @@
 
     <div class="flex-center">
       <div class="container">
-        <article>
+        
+  <article>
   <h1 class="text-center">
-    如何在CentOS 6.5下手动安装php的redis扩展
+    价值博客
   </h1>
-  <div class="text-center top-gap">
-    <div class="text-small text-muted">
-  <time datetime="2017-01-23T23:42:00+08:00">
-    2017-01-23
-  </time>
-  <span class="theme-separator">·</span>
-  <i class="czs-user-l"></i>
-  <a class="text-muted theme-text-no-decoration" href="https://github.com/undefined">undefined</a>
-  <span class="theme-separator">·</span>
-  <i class="czs-bookmark-l"></i>
-  <a class="text-muted theme-text-no-decoration" href="/categories/PHP/">PHP</a>
-  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
-    <span class="theme-separator">·</span>
-    <i class="czs-comment-l"></i>
-    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2017/01/23/redis_extension_installation/" href="/2017/01/23/redis_extension_installation/#disqus_thread"></a>
-  </span>
-</div>
-
-  </div>
   <div class="top-gap-big">
     <ul>
-<li>安装环境：CentOS 6.5 </li>
-<li>php版本：5.3.27</li>
-<li>redis扩展包版本：2.2.4</li>
-<li>redis安装包版本：2.6.14</li>
+<li><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="external">阮一峰老师的博客</a></li>
+<li><a href="https://coolshell.cn" target="_blank" rel="external">酷壳-左耳朵耗子</a></li>
+<li><a href="http://rango.swoole.com/" target="_blank" rel="external">韩天峰的博客</a></li>
+<li><a href="https://www.scotthyoung.com/blog/" target="_blank" rel="external">Scott H. Young</a></li>
+<li><a href="http://mindhacks.cn/" target="_blank" rel="external">思维改变生活-刘未鹏</a></li>
+<li><a href="http://www.tonyyet.com/" target="_blank" rel="external">Accentuate the Positive-TonyYet</a></li>
+<li><a href="http://lixiaolai.com/" target="_blank" rel="external">学习学习再学习-李笑来</a></li>
+<li><a href="http://www.write.org.cn/" target="_blank" rel="external">读书笔记-战隼</a></li>
+<li><a href="http://meditic.com/" target="_blank" rel="external">野兽派游戏-罗浩Meditic</a></li>
+<li><a href="http://www.sweet-layla.com/" target="_blank" rel="external">孤独的花朵-SweetLayla</a></li>
+<li><a href="http://www.nuttyears.com/" target="_blank" rel="external">为老板打工-Nuttyear</a></li>
+<li><a href="http://www.nuttyears.com/" target="_blank" rel="external">谢益辉</a></li>
+<li><a href="http://zhiqiang.org/blog/" target="_blank" rel="external">阅微堂</a></li>
+<li><a href="http://www.cnblogs.com/vamei/" target="_blank" rel="external">多才多艺气象学博士-Vamei</a></li>
+<li><a href="http://blog.farmostwood.net/" target="_blank" rel="external">多才多艺数学博士-木遥</a></li>
+<li><a href="http://www.laruence.com/" target="_blank" rel="external">风雪之隅</a></li>
+<li><a href="https://blog.lilydjwg.me/" target="_blank" rel="external">依云</a></li>
+<li><a href="http://www.yangzhiping.com/" target="_blank" rel="external">阳志平的网志</a></li>
+<li><a href="https://segmentfault.com/blog/weekly" target="_blank" rel="external">SegmentFault社区周刊</a></li>
+<li><a href="http://blog.xcatliu.com/" target="_blank" rel="external">微软前端-流浪小猫</a></li>
 </ul>
-<p>第一步：<br>获取准备好安装包</p>
-<p>第二步：上传扩展包到php的拓展目录下 一般是 /usr/local/php/include/php/ext,解压后，看到文件config.m4，如果没有这个文件，后续操作可能会报错</p>
-<p>第三步：在加压后的扩展文件目录下，使用phpize来生成配置文件<br>/usr/local/php/bin/phpize 生成configure文件</p>
-<p>第四步：按照配置文件安装扩展，得到redis扩展最后的安装文件目录<br>./configure –with-php-config=/usr/local/php/bin/php-config</p>
-<p>make &amp;&amp; make install</p>
-<p>第五步：得到redis扩展包的最后的安装文件目录之后，在php.ini文件中修改配置项，打开redis扩展<br>如果没有相应的redis项，需要手动添加,</p>
-<p><img src="./images/painting.jpg"></p>
-<p>别忘记重启apache，就可以看到<br><img src="./images/redis_ext-1.jpg"></p>
-<p><img src="http://w3.org/Icons/valid-xhtml10" alt=""></p>
 
   </div>
 </article>
-<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
-<div class="top-gap-big text-center text-muted">
-  <small>
-    <i class="czs-tag-l"></i>
-    <a class="text-muted" href="/tags/PHP/">PHP</a> , <a class="text-muted" href="/tags/Redis/">Redis</a>
-  </small>
-</div>
-
-
+  
   <div id="disqus_thread" class="top-gap-big"></div>
   <script>
     var langMap = {
@@ -109,9 +88,9 @@
     };
     var disqus_config = function () {
       this.language = langMap['zh-CN'] || langMap['en'];
-      this.page.url = 'http://blog.vanwhebin.com/2017/01/23/redis_extension_installation/';
-      this.page.identifier = '2017/01/23/redis_extension_installation/';
-      this.page.title = '如何在CentOS 6.5下手动安装php的redis扩展';
+      this.page.url = 'http://blog.vanwhebin.com/links/index.html';
+      this.page.identifier = 'links/index.html';
+      this.page.title = '价值博客';
     };
     (function() {
       var d = document, s = d.createElement('script');
@@ -121,6 +100,7 @@
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 
         <hr class="top-gap-big"></hr>

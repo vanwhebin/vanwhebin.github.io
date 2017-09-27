@@ -1,719 +1,209 @@
 <!doctype html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
+<html lang="zh-CN">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
 
   
   
   
+
+  <link rel="stylesheet" href="/css/mobi.css-3.1.1/dist/mobi.min.css">
+<link rel="stylesheet" href="/css/caomei1.2.1/style.css">
+<link rel="stylesheet" href="/css/theme.css">
+
+  
+    <meta name="keywords" content="PHP, 电商网站" />
   
 
   
-    
-    
+    <link rel="alternate" href="/atom.xml" title="黄鸟于飞" type="application/atom+xml" />
   
 
   
-
+    <link rel="shortcut icon" href="/favicon.ico">
   
 
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="PHP,电商网站," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="本文作为电商网站职业生涯的经历和总结帖，太多头绪一时难以理清,列出目录，希望尽快完成，也算是对自己经历的一些小小总结和沉淀
-网站开发环境，LNMPA，服务器环境搭建和设置网站开发框架，Mengento系统二次开发数据库优化，缓存技术：nosql 和文件缓存技术，静态化后台ERP系统的对接购物车并发下单和库存问题手机移动界面，Bootstrap响应式的优化支付接口集群和分布式（参考其他网站的配置）后">
-<meta property="og:type" content="article">
-<meta property="og:title" content="电商网站的架构和技术点">
-<meta property="og:url" content="http://blog.vanwhebin.com/2017/01/24/emercial-site-design-build/index.html">
-<meta property="og:site_name" content="黄鸟于飞">
-<meta property="og:description" content="本文作为电商网站职业生涯的经历和总结帖，太多头绪一时难以理清,列出目录，希望尽快完成，也算是对自己经历的一些小小总结和沉淀
-网站开发环境，LNMPA，服务器环境搭建和设置网站开发框架，Mengento系统二次开发数据库优化，缓存技术：nosql 和文件缓存技术，静态化后台ERP系统的对接购物车并发下单和库存问题手机移动界面，Bootstrap响应式的优化支付接口集群和分布式（参考其他网站的配置）后">
-<meta property="og:updated_time" content="2017-02-12T15:10:48.038Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="电商网站的架构和技术点">
-<meta name="twitter:description" content="本文作为电商网站职业生涯的经历和总结帖，太多头绪一时难以理清,列出目录，希望尽快完成，也算是对自己经历的一些小小总结和沉淀
-网站开发环境，LNMPA，服务器环境搭建和设置网站开发框架，Mengento系统二次开发数据库优化，缓存技术：nosql 和文件缓存技术，静态化后台ERP系统的对接购物车并发下单和库存问题手机移动界面，Bootstrap响应式的优化支付接口集群和分布式（参考其他网站的配置）后">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 'undefined',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://blog.vanwhebin.com/2017/01/24/emercial-site-design-build/"/>
-
-
-
-
-
-  <title> 电商网站的架构和技术点 | 黄鸟于飞 </title>
+  <title>电商网站的架构和技术点 - 黄鸟于飞</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">黄鸟于飞</span>
-      <span class="logo-line-after"><i></i></span>
+  <body class="theme-body">
+    <div class="flex-center theme-header-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="首页">
+      <i class="czs-home-l"></i>
+    </a>
+    <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
+      黄鸟于飞
+    </div>
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="更多">
+      <i class="czs-menu-l"></i>
     </a>
   </div>
-    
-      <h1 class="site-subtitle" itemprop="description">just notes</h1>
-    
+</div>
+<div class="theme-header-placeholder"></div>
+
+    <div class="flex-center">
+      <div class="container">
+        <article>
+  <h1 class="text-center">
+    电商网站的架构和技术点
+  </h1>
+  <div class="text-center top-gap">
+    <div class="text-small text-muted">
+  <time datetime="2017-01-24T00:40:29+08:00">
+    2017-01-24
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/undefined">undefined</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/PHP/">PHP</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2017/01/24/emercial-site-design-build/" href="/2017/01/24/emercial-site-design-build/#disqus_thread"></a>
+  </span>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.vanwhebin.com/2017/01/24/emercial-site-design-build/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="vanwhebin">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="黄鸟于飞">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="黄鸟于飞" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                电商网站的架构和技术点
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-24T00:40:29+08:00">
-                2017-01-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/24/emercial-site-design-build/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/24/emercial-site-design-build/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>本文作为电商网站职业生涯的经历和总结帖，太多头绪一时难以理清,列出目录，希望尽快完成，也算是对自己经历的一些小小总结和沉淀</p>
+  </div>
+  <div class="top-gap-big">
+    <p>本文作为电商网站职业生涯的经历和总结帖，太多头绪一时难以理清,列出目录，希望尽快完成，也算是对自己经历的一些小小总结和沉淀</p>
 <h3 id="网站开发环境，LNMPA，服务器环境搭建和设置"><a href="#网站开发环境，LNMPA，服务器环境搭建和设置" class="headerlink" title="网站开发环境，LNMPA，服务器环境搭建和设置"></a>网站开发环境，LNMPA，服务器环境搭建和设置</h3><h3 id="网站开发框架，Mengento系统二次开发"><a href="#网站开发框架，Mengento系统二次开发" class="headerlink" title="网站开发框架，Mengento系统二次开发"></a>网站开发框架，Mengento系统二次开发</h3><h3 id="数据库优化，"><a href="#数据库优化，" class="headerlink" title="数据库优化，"></a>数据库优化，</h3><h3 id="缓存技术：nosql-和文件缓存技术，静态化"><a href="#缓存技术：nosql-和文件缓存技术，静态化" class="headerlink" title="缓存技术：nosql 和文件缓存技术，静态化"></a>缓存技术：nosql 和文件缓存技术，静态化</h3><h3 id="后台ERP系统的对接"><a href="#后台ERP系统的对接" class="headerlink" title="后台ERP系统的对接"></a>后台ERP系统的对接</h3><h3 id="购物车并发下单和库存问题"><a href="#购物车并发下单和库存问题" class="headerlink" title="购物车并发下单和库存问题"></a>购物车并发下单和库存问题</h3><h3 id="手机移动界面，Bootstrap响应式的优化"><a href="#手机移动界面，Bootstrap响应式的优化" class="headerlink" title="手机移动界面，Bootstrap响应式的优化"></a>手机移动界面，Bootstrap响应式的优化</h3><h3 id="支付接口"><a href="#支付接口" class="headerlink" title="支付接口"></a>支付接口</h3><h3 id="集群和分布式（参考其他网站的配置）"><a href="#集群和分布式（参考其他网站的配置）" class="headerlink" title="集群和分布式（参考其他网站的配置）"></a>集群和分布式（参考其他网站的配置）</h3><h3 id="后台主要功能"><a href="#后台主要功能" class="headerlink" title="后台主要功能"></a>后台主要功能</h3><h3 id="购物流程等一系列业务逻辑，积分设计，虚拟币设计，会员等级制度"><a href="#购物流程等一系列业务逻辑，积分设计，虚拟币设计，会员等级制度" class="headerlink" title="购物流程等一系列业务逻辑，积分设计，虚拟币设计，会员等级制度"></a>购物流程等一系列业务逻辑，积分设计，虚拟币设计，会员等级制度</h3>
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
-          
-            <a href="/tags/电商网站/" rel="tag"># 电商网站</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/01/23/redis_extension_installation/" rel="next" title="如何在CentOS 6.5下手动安装php的redis扩展">
-                <i class="fa fa-chevron-left"></i> 如何在CentOS 6.5下手动安装php的redis扩展
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
+</article>
+<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<div class="top-gap-big text-center text-muted">
+  <small>
+    <i class="czs-tag-l"></i>
+    <a class="text-muted" href="/tags/PHP/">PHP</a> , <a class="text-muted" href="/tags/电商网站/">电商网站</a>
+  </small>
+</div>
 
-          
-          </div>
-          
+
+  <div id="disqus_thread" class="top-gap-big"></div>
+  <script>
+    var langMap = {
+      en: 'en',
+      'zh-CN': 'zh'
+    };
+    var disqus_config = function () {
+      this.language = langMap['zh-CN'] || langMap['en'];
+      this.page.url = 'http://blog.vanwhebin.com/2017/01/24/emercial-site-design-build/';
+      this.page.identifier = '2017/01/24/emercial-site-design-build/';
+      this.page.title = '电商网站的架构和技术点';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '//vanwhebin.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
-          
-  <div class="comments" id="comments">
+        <hr class="top-gap-big"></hr>
+<p class="text-center">
+  <small class="text-muted">
+    &copy;
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+    <span itemprop="copyrightYear">2017</span>
+    <i class="czs-heart" style="color:red;"></i>
+    <span itemprop="copyrightHolder">vanwhebin</span>
+
+    <br/>
+
+    由 <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a> 强力驱动
+    <span class="theme-separator">·</span>
+    主题
+    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
+  </small>
+</p>
+
       </div>
+      <div class="theme-sidebar-mask theme-hide"></div>
+<aside class="theme-sidebar-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
     
-  </div>
-
-
-        </div>
-        
-          
+    <a class="unit-0 theme-icon-link" href="/archives" title="Archives">
+      <i class="czs-folder-l"></i>
+    </a>
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+    <a class="unit-0 theme-icon-link" href="/categories" title="Categories">
+      <i class="czs-bookmark-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/tags" title="Tag">
+      <i class="czs-tag-l"></i>
+    </a>
+  
+    <div class="unit"></div>
+  
+    <a class="unit-0 theme-icon-link" href="http://blog.vanwhebin.com/about" title="About">
+      <i class="czs-user-l"></i>
+    </a>
+  
+
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
-               alt="vanwhebin" />
-          <p class="site-author-name" itemprop="name">vanwhebin</p>
-          <p class="site-description motion-element" itemprop="description">fullfillment is not equal as joy! it brings more.</p>
-        </div>
-        <nav class="site-state motion-element">
-        
+  <div class="container">
+    
+          <h2>黄鸟于飞</h2>
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
+          <p class="top-gap-0 text-muted">Just notes.</p>
           
-
-          
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/vanwhebin" target="_blank" title="Github">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Github
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.douban.com/people/vanwhebin/" target="_blank" title="Douban">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Douban
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#网站开发环境，LNMPA，服务器环境搭建和设置"><span class="nav-number">1.</span> <span class="nav-text">网站开发环境，LNMPA，服务器环境搭建和设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站开发框架，Mengento系统二次开发"><span class="nav-number">2.</span> <span class="nav-text">网站开发框架，Mengento系统二次开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库优化，"><span class="nav-number">3.</span> <span class="nav-text">数据库优化，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存技术：nosql-和文件缓存技术，静态化"><span class="nav-number">4.</span> <span class="nav-text">缓存技术：nosql 和文件缓存技术，静态化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台ERP系统的对接"><span class="nav-number">5.</span> <span class="nav-text">后台ERP系统的对接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#购物车并发下单和库存问题"><span class="nav-number">6.</span> <span class="nav-text">购物车并发下单和库存问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机移动界面，Bootstrap响应式的优化"><span class="nav-number">7.</span> <span class="nav-text">手机移动界面，Bootstrap响应式的优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支付接口"><span class="nav-number">8.</span> <span class="nav-text">支付接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群和分布式（参考其他网站的配置）"><span class="nav-number">9.</span> <span class="nav-text">集群和分布式（参考其他网站的配置）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台主要功能"><span class="nav-number">10.</span> <span class="nav-text">后台主要功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#购物流程等一系列业务逻辑，积分设计，虚拟币设计，会员等级制度"><span class="nav-number">11.</span> <span class="nav-text">购物流程等一系列业务逻辑，积分设计，虚拟币设计，会员等级制度</span></a></li></ol></div>
-            
-
+          <div class="flex-left flex-middle top-gap">
+            <img alt="Avatar" height="24" src="/assets/about/free_to_paint.jpg"/>
+            <span class="theme-sidebar-author">vanwhebin</span>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
+          
+          <p>这里收藏一些故事，欢迎来读</p>
+          
+          <p class="theme-sidebar-social">
+            
+    <a class="unit-0 theme-icon-link" href="https://github.com/vanwhebin" title="GitHub">
+      <i class="czs-github"></i>
+    </a>
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">vanwhebin</span>
-</div>
+    <a class="unit-0 theme-icon-link" href="https://www.v2ex.com/member/fogg" title="V2EX">
+      <i class="czs-v2ex"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="mailto:vanwhebin@gmail.com" title="Gmail">
+      <i class="czs-message-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/atom.xml" title="RSS 订阅">
+      <i class="czs-rss"></i>
+    </a>
+  
 
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+          </p>
+          
+          <h5>友情链接</h5>
+          <p class="text-muted">
+            <small>
+              <ul class="theme-list-style-none">
+                <li><a class="text-muted" href="http://www.qiehe.net/">茄盒网</a></li><li><a class="text-muted" href="/links">More</a></li>
+              </ul>
+            </small>
+          </p>
+          
   </div>
+</aside>
 
-  
+    </div>
+    <script src="/js/theme.js"></script>
+    
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+    
+  <script id="dsq-count-scr" src="//vanwhebin.disqus.com/count.js" async></script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'blog-vanwhebin-com.disqus.com';
-      var disqus_identifier = '2017/01/24/emercial-site-design-build/';
-
-      var disqus_title = "电商网站的架构和技术点";
-
-
-      function run_disqus_script(disqus_script) {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-
-      
-        var disqus_config = function () {
-            this.page.url = disqus_url;
-            this.page.identifier = disqus_identifier;
-            this.page.title = disqus_title;
-        };
-        run_disqus_script('embed.js');
-      
-
-    </script>
-  
-
-
-
-
-
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-
-</body>
+  </body>
 </html>
