@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/css/theme.css">
 
   
+    <meta name="keywords" content="hexo" />
+  
 
   
     <link rel="alternate" href="/atom.xml" title="黄鸟于飞" type="application/atom+xml" />
@@ -27,7 +29,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
 
-  <title>Hello World - 黄鸟于飞</title>
+  <title>Hexo博客的操作命令 - 黄鸟于飞</title>
 </head>
 
   <body class="theme-body">
@@ -50,7 +52,7 @@
       <div class="container">
         <article>
   <h1 class="text-center">
-    Hello World
+    Hexo博客的操作命令
   </h1>
   <div class="text-center top-gap">
     <div class="text-small text-muted">
@@ -59,10 +61,10 @@
   </time>
   <span class="theme-separator">·</span>
   <i class="czs-user-l"></i>
-  <a class="text-muted theme-text-no-decoration" href="https://github.com/undefined">undefined</a>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/Hexo">Hexo</a>
   <span class="theme-separator">·</span>
   <i class="czs-bookmark-l"></i>
-  
+  <a class="text-muted theme-text-no-decoration" href="/categories/Hexo/">Hexo</a>
   <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
     <span class="theme-separator">·</span>
     <i class="czs-comment-l"></i>
@@ -72,15 +74,32 @@
 
   </div>
   <div class="top-gap-big">
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+    <h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo -g <span class="comment">#安装  </span></div><div class="line">npm update hexo -g <span class="comment">#升级  </span></div><div class="line">hexo init <span class="comment">#初始化</span></div><div class="line">``` </div><div class="line"></div><div class="line">简写</div><div class="line"></div><div class="line">``` bash</div><div class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></div><div class="line">hexo p == hexo publish</div><div class="line">hexo g == hexo generate<span class="comment">#生成</span></div><div class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></div><div class="line">hexo d == hexo deploy<span class="comment">#部署</span></div></pre></td></tr></table></figure>
+<p>服务器<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo server <span class="comment">#Hexo 会监视文件变动并自动更新，您无须重启服务器。</span></div><div class="line">hexo server <span class="_">-s</span> <span class="comment">#静态模式</span></div><div class="line">hexo server -p 5000 <span class="comment">#更改端口</span></div><div class="line">hexo server -i 192.168.1.1 <span class="comment">#自定义 IP</span></div><div class="line">hexo clean <span class="comment">#清除缓存 网页正常情况下可以忽略此条命令</span></div><div class="line">hexo g <span class="comment">#生成静态网页</span></div><div class="line">hexo d <span class="comment">#开始部署</span></div></pre></td></tr></table></figure></p>
+<h2 id="监视文件变动"><a href="#监视文件变动" class="headerlink" title="监视文件变动"></a>监视文件变动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo generate <span class="comment">#使用 Hexo 生成静态文件快速而且简单</span></div><div class="line">hexo generate --watch <span class="comment">#监视文件变动</span></div><div class="line">完成后部署</div><div class="line"></div><div class="line">两个命令的作用是相同的</div><div class="line">hexo generate --deploy</div><div class="line">hexo deploy --generate</div><div class="line">hexo deploy -g</div><div class="line">hexo server -g</div></pre></td></tr></table></figure>
+<h2 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo publish [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></div><div class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></div><div class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></div><div class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></div><div class="line">hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span></div><div class="line">hexo new [layout] &lt;title&gt;</div><div class="line">hexo new photo <span class="string">"My Gallery"</span></div><div class="line">hexo new <span class="string">"Hello World"</span> --lang tw</div><div class="line">变量	描述</div><div class="line">layout	布局</div><div class="line">title	标题</div><div class="line">date	文件建立日期</div><div class="line">title: 使用Hexo搭建个人博客</div><div class="line">layout: post</div><div class="line">date: 2014-03-03 19:07:43</div><div class="line">comments: <span class="literal">true</span></div><div class="line">categories: B<span class="built_in">log</span></div><div class="line">tags: [Hexo]</div><div class="line">keywords: Hexo, B<span class="built_in">log</span></div><div class="line">description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。</div><div class="line">模版（Scaffold）</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new photo <span class="string">"My Gallery"</span></div><div class="line">变量	描述</div><div class="line">layout	布局</div><div class="line">title	标题</div><div class="line">date	文件建立日期</div></pre></td></tr></table></figure>
+<h2 id="设置文章摘要"><a href="#设置文章摘要" class="headerlink" title="设置文章摘要"></a>设置文章摘要</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">以上是文章摘要 &lt;!--more--&gt; 以下是余下全文</div></pre></td></tr></table></figure>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo new page &lt;title&gt;</div><div class="line">hexo new post &lt;title&gt;</div><div class="line">变量	描述</div><div class="line">:title	标题</div><div class="line">:year	建立的年份（4 位数）</div><div class="line">:month	建立的月份（2 位数）</div><div class="line">:i_month	建立的月份（去掉开头的零）</div><div class="line">:day	建立的日期（2 位数）</div><div class="line">:i_day	建立的日期（去掉开头的零）</div></pre></td></tr></table></figure>
+<h2 id="推送到服务器上"><a href="#推送到服务器上" class="headerlink" title="推送到服务器上"></a>推送到服务器上</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo n <span class="comment">#写文章</span></div><div class="line">hexo g <span class="comment">#生成</span></div><div class="line">hexo d <span class="comment">#部署 #可与hexo g合并为 hexo d -g</span></div></pre></td></tr></table></figure>
+<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><h3 id="1-找不到git部署"><a href="#1-找不到git部署" class="headerlink" title="1.找不到git部署"></a>1.找不到git部署</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ERROR Deployer not found: git</div><div class="line">解决方法</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<h3 id="2-部署类型设置git"><a href="#2-部署类型设置git" class="headerlink" title="2.部署类型设置git"></a>2.部署类型设置git</h3><p>hexo 3.0 部署类型不再是github，_config.yml 中修改<br><a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment Docs</a></p>
+<p>deploy:<br>  type: git<br>  repository: git@<strong><em>.github.com:</em></strong>/<em>*</em>.github.io.git<br>  branch: master</p>
+<h3 id="3-xcodebuild"><a href="#3-xcodebuild" class="headerlink" title="3. xcodebuild"></a>3. xcodebuild</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">xcode-select: error: tool <span class="string">'xcodebuild'</span> requires Xcode, but active developer directory <span class="string">'/Library/Developer/CommandLineTools'</span> is a <span class="built_in">command</span> line tools instance</div><div class="line">npm install bcrypt</div></pre></td></tr></table></figure>
+<h3 id="4-RSS不显示"><a href="#4-RSS不显示" class="headerlink" title="4. RSS不显示"></a>4. RSS不显示</h3><p>安装RSS插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ npm install hexo-generator-feed --save</div><div class="line">开启RSS功能</div></pre></td></tr></table></figure>
+<p>编辑hexo/_config.yml，添加如下代码：<br>rss: /atom.xml #rss地址  默认即可</p>
+<blockquote>
+<p>via <a href="https://segmentfault.com/a/1190000002632530" target="_blank" rel="external">segmentFault</a></p>
+</blockquote>
 
   </div>
 </article>
@@ -88,7 +107,7 @@
 <div class="top-gap-big text-center text-muted">
   <small>
     <i class="czs-tag-l"></i>
-    
+    <a class="text-muted" href="/tags/hexo/">hexo</a>
   </small>
 </div>
 
@@ -103,7 +122,7 @@
       this.language = langMap['zh-CN'] || langMap['en'];
       this.page.url = 'http://blog.vanwhebin.com/2017/01/23/hello-world/';
       this.page.identifier = '2017/01/23/hello-world/';
-      this.page.title = 'Hello World';
+      this.page.title = 'Hexo博客的操作命令';
     };
     (function() {
       var d = document, s = d.createElement('script');

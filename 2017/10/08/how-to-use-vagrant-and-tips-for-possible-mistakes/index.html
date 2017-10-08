@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/css/theme.css">
 
   
+    <meta name="keywords" content="PHP, Laravel" />
+  
 
   
     <link rel="alternate" href="/atom.xml" title="黄鸟于飞" type="application/atom+xml" />
@@ -27,7 +29,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
 
-  <title>黄鸟于飞</title>
+  <title>如何在Windows上安装使用Vagrant开发环境,以及一些避坑说明 - 黄鸟于飞</title>
 </head>
 
   <body class="theme-body">
@@ -48,34 +50,69 @@
 
     <div class="flex-center">
       <div class="container">
-        <h1 class="text-center">归档</h1>
-<ul class="top-gap-big">
-  
-    <li>
-      <a href="/2017/10/08/how-to-use-vagrant-and-tips-for-possible-mistakes/">
-        如何在Windows上安装使用Vagrant开发环境,以及一些避坑说明
-      </a>
-    </li>
-  
-    <li>
-      <a href="/2017/01/24/emercial-site-design-build/">
-        电商网站的架构和技术点
-      </a>
-    </li>
-  
-    <li>
-      <a href="/2017/01/23/redis_extension_installation/">
-        如何在CentOS 6.5下手动安装php的redis扩展
-      </a>
-    </li>
-  
-    <li>
-      <a href="/2017/01/23/hello-world/">
-        Hexo博客的操作命令
-      </a>
-    </li>
-  
-</ul>
+        <article>
+  <h1 class="text-center">
+    如何在Windows上安装使用Vagrant开发环境,以及一些避坑说明
+  </h1>
+  <div class="text-center top-gap">
+    <div class="text-small text-muted">
+  <time datetime="2017-10-08T22:00:03+08:00">
+    2017-10-08
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/vanwhebin">vanwhebin</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/PHP/">PHP</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2017/10/08/how-to-use-vagrant-and-tips-for-possible-mistakes/" href="/2017/10/08/how-to-use-vagrant-and-tips-for-possible-mistakes/#disqus_thread"></a>
+  </span>
+</div>
+
+  </div>
+  <div class="top-gap-big">
+    <blockquote>
+<p>在迷惘中坚持，在交流中成长</p>
+<h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><p>Vagrant<br>Git<br>Composer<br>Virtual Box虚拟机<br>Virtual Box开发环境Box<br>Homestead安装包</p>
+</blockquote>
+<h2 id="初始化homestead文件"><a href="#初始化homestead文件" class="headerlink" title="初始化homestead文件"></a>初始化homestead文件</h2><h2 id="生成git-密匙"><a href="#生成git-密匙" class="headerlink" title="生成git 密匙"></a>生成git 密匙</h2><h2 id="添加虚拟机"><a href="#添加虚拟机" class="headerlink" title="添加虚拟机"></a>添加虚拟机</h2><h3 id="修正版本"><a href="#修正版本" class="headerlink" title="修正版本"></a>修正版本</h3><h3 id="确认composer完全加载了第三方库"><a href="#确认composer完全加载了第三方库" class="headerlink" title="确认composer完全加载了第三方库"></a>确认composer完全加载了第三方库</h3><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h2 id="一些简单命令"><a href="#一些简单命令" class="headerlink" title="一些简单命令"></a>一些简单命令</h2><h2 id="如何使用虚拟机上已安装的软件"><a href="#如何使用虚拟机上已安装的软件" class="headerlink" title="如何使用虚拟机上已安装的软件"></a>如何使用虚拟机上已安装的软件</h2><blockquote>
+<p>参考</p>
+</blockquote>
+
+  </div>
+</article>
+<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<div class="top-gap-big text-center text-muted">
+  <small>
+    <i class="czs-tag-l"></i>
+    <a class="text-muted" href="/tags/PHP/">PHP</a> , <a class="text-muted" href="/tags/Laravel/">Laravel</a>
+  </small>
+</div>
+
+
+  <div id="disqus_thread" class="top-gap-big"></div>
+  <script>
+    var langMap = {
+      en: 'en',
+      'zh-CN': 'zh'
+    };
+    var disqus_config = function () {
+      this.language = langMap['zh-CN'] || langMap['en'];
+      this.page.url = 'http://blog.vanwhebin.com/2017/10/08/how-to-use-vagrant-and-tips-for-possible-mistakes/';
+      this.page.identifier = '2017/10/08/how-to-use-vagrant-and-tips-for-possible-mistakes/';
+      this.page.title = '如何在Windows上安装使用Vagrant开发环境,以及一些避坑说明';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '//blogvanwhebin.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
         <hr class="top-gap-big"></hr>
