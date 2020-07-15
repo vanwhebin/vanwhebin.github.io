@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  
+  
+  
+
+  <link rel="stylesheet" href="/css/mobi.css-3.1.1/dist/mobi.min.css">
+<link rel="stylesheet" href="/css/caomei1.2.1/style.css">
+<link rel="stylesheet" href="/css/theme.css">
+
+  
+    <meta name="keywords" content="Django, python">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="黄鸟惊蛰" type="application/atom+xml">
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  <title>在django中使用huey - 黄鸟惊蛰</title>
+</head>
+
+  <body class="theme-body">
+    <div class="flex-center theme-header-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="首页">
+      <i class="czs-home-l"></i>
+    </a>
+    <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
+      黄鸟惊蛰
+    </div>
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="更多">
+      <i class="czs-menu-l"></i>
+    </a>
+  </div>
+</div>
+<div class="theme-header-placeholder"></div>
+
+    <div class="flex-center">
+      <div class="container">
+        <article>
+  <h1 class="text-center">
+    在django中使用huey
+  </h1>
+  <div class="text-center top-gap">
+    <div class="text-small text-muted">
+  <time datetime="2020-07-15T14:28:09+08:00">
+    2020-07-15
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/"></a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2020/07/15/在django中使用huey/" href="/2020/07/15/在django中使用huey/#disqus_thread"></a>
+  </span>
+</div>
+
+  </div>
+  <div class="top-gap-big">
+    <blockquote>
+<ul>
+<li>Django 3.0.8</li>
+<li>huey 2.2.0</li>
+<li>redis 3.0+</li>
+</ul>
+</blockquote>
+<h3 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h3><p>略<br><figure class="highlight vim"><table class="table"><tr><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-<span class="number">5.0</span>.<span class="number">8</span>.tar.gz</span><br><span class="line">tar -zxvf redis-<span class="number">5.0</span>.<span class="number">8</span>.tar.gz</span><br><span class="line"><span class="keyword">cd</span> redis-<span class="number">5.0</span>.<span class="number">8</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> install gcc</span><br><span class="line">sudo <span class="keyword">make</span> &amp;&amp; <span class="keyword">make</span> install &amp;&amp; <span class="keyword">make</span> test</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>修改配置文件daemon=true</li>
+<li>启动<code>redis-server ../redis.conf</code></li>
+</ul>
+<h3 id="安装huey"><a href="#安装huey" class="headerlink" title="安装huey"></a>安装huey</h3><figure class="highlight cmake"><table class="table"><tr><td class="code"><pre><span class="line">pip <span class="keyword">install</span> huey</span><br><span class="line">pip <span class="keyword">install</span> redis  </span><br><span class="line"><span class="comment"># 默认使用redis作为队列容器和数据结果容器</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置Django中的huey"><a href="#配置Django中的huey" class="headerlink" title="配置Django中的huey"></a>配置Django中的huey</h3><h4 id="settings-py文件"><a href="#settings-py文件" class="headerlink" title="settings.py文件"></a><code>settings.py</code>文件</h4><figure class="highlight"><table class="table"><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"># 默认配置</span><br><span class="line">HUEY = &#123;</span><br><span class="line">    'huey_class': 'huey.RedisHuey',  # Huey implementation to use.</span><br><span class="line">    'name': DATABASES['default']['NAME'],  # Use db name for huey.</span><br><span class="line">    'results': True,  # Store return values of tasks.</span><br><span class="line">    'store_none': False,  # If a task returns None, do not save to results.</span><br><span class="line">    'immediate': False,  # If DEBUG=True, run synchronously.</span><br><span class="line">    'utc': True,  # Use UTC for all times internally.</span><br><span class="line">    'blocking': True,  # Perform blocking pop rather than poll Redis.</span><br><span class="line">    'connection': &#123;</span><br><span class="line">        'host': 'localhost',</span><br><span class="line">        'port': 6379,</span><br><span class="line">        'db': 0,</span><br><span class="line">        'connection_pool': None,  # Definitely you should use pooling!</span><br><span class="line">        # ... tons of other options, see redis-py for details.</span><br><span class="line"></span><br><span class="line">        # huey-specific connection parameters.</span><br><span class="line">        'read_timeout': 1,  # If not polling (blocking pop), use timeout.</span><br><span class="line">        'url': None,  # Allow Redis config via a DSN.</span><br><span class="line">    &#125;,</span><br><span class="line">    'consumer': &#123;</span><br><span class="line">        'workers': 2,</span><br><span class="line">        'worker_type': 'thread',</span><br><span class="line">        'initial_delay': 0.1,  # Smallest polling interval, same as -d.</span><br><span class="line">        'backoff': 1.15,  # Exponential backoff using this rate, -b.</span><br><span class="line">        'max_delay': 10.0,  # Max possible polling interval, -m.</span><br><span class="line">        'scheduler_interval': 1,  # Check schedule every second, -s.</span><br><span class="line">        'periodic': True,  # Enable crontab feature.</span><br><span class="line">        'check_worker_health': True,  # Enable worker health checks.</span><br><span class="line">        'health_check_interval': 1,  # Check worker health every second.</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="app文件夹中的tasks-py"><a href="#app文件夹中的tasks-py" class="headerlink" title="app文件夹中的tasks.py"></a>app文件夹中的<code>tasks.py</code></h4><figure class="highlight python"><table class="table"><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 命名为tasks.py huey的task任务会被自动导入</span></span><br><span class="line"><span class="keyword">from</span> huey.contrib.djhuey <span class="keyword">import</span> task</span><br><span class="line"><span class="keyword">from</span> huey <span class="keyword">import</span> crontab</span><br><span class="line"><span class="keyword">from</span> huey.contrib.djhuey <span class="keyword">import</span> db_periodic_task, db_task</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@task()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_num</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    print(a)</span><br><span class="line">    print(b)</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@huey.task(retries=2, retry_delay=60)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">flaky_task</span><span class="params">(url)</span>:</span></span><br><span class="line"><span class="comment">#     This task might fail, in which case it will be</span></span><br><span class="line"><span class="comment">#      retried up to 2 times</span></span><br><span class="line"><span class="comment">#     with a delay of 60s between retries.</span></span><br><span class="line">    <span class="keyword">return</span> this_might_fail(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta"> @huey.periodic_task(crontab(minute='0', hour='3'))</span></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">nightly_backup</span><span class="params">()</span>:</span></span><br><span class="line">     sync_all_data()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@db_task()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do_some_queries</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># This task executes queries. Once the task finishes, the connection</span></span><br><span class="line">    <span class="comment"># will be closed.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@db_periodic_task(crontab(minute='*/5'))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">every_five_mins</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># This is a periodic task that executes queries.</span></span><br></pre></td></tr></table></figure>
+<h3 id="队列消费者启动命令"><a href="#队列消费者启动命令" class="headerlink" title="队列消费者启动命令"></a>队列消费者启动命令</h3><figure class="highlight stylus"><table class="table"><tr><td class="code"><pre><span class="line">python manage<span class="selector-class">.py</span> run_huey</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<div class="top-gap-big text-center text-muted">
+  <small>
+    <i class="czs-tag-l"></i>
+    <a class="text-muted" href="/tags/Django-python/">Django, python</a>
+  </small>
+</div>
+
+
+
+        <hr class="top-gap-big">
+<p class="text-center">
+  <small class="text-muted">
+    &copy;
+    
+      2018 -
+    
+    <span itemprop="copyrightYear">2020</span>
+    <i class="czs-heart" style="color:red;"></i>
+    <span itemprop="copyrightHolder">vanwhebin</span>
+
+    <br>
+
+    由 <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a> 强力驱动
+    <span class="theme-separator">·</span>
+    主题
+    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
+  </small>
+</p>
+
+      </div>
+      <div class="theme-sidebar-mask theme-hide"></div>
+<aside class="theme-sidebar-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    
+    <a class="unit-0 theme-icon-link" href="/archives" title="归档">
+      <i class="czs-folder-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/categories" title="分类">
+      <i class="czs-bookmark-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/tags" title="标签">
+      <i class="czs-tag-l"></i>
+    </a>
+  
+    <div class="unit"></div>
+  
+    <a class="unit-0 theme-icon-link" href="http://xcatliu.com" title="关于我">
+      <i class="czs-user-l"></i>
+    </a>
+  
+
+  </div>
+  <div class="container">
+    
+          <h2>黄鸟惊蛰</h2>
+          
+          <p class="top-gap-0 text-muted"></p>
+          
+          <div class="flex-left flex-middle top-gap">
+            <img alt="Avatar" height="24" src="/assets/about/xcatliu_512.png">
+            <span class="theme-sidebar-author">vanwhebin</span>
+          </div>
+          
+          <p>这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。</p>
+          
+          <p class="theme-sidebar-social">
+            
+    <a class="unit-0 theme-icon-link" href="https://github.com/vanwhebin" title="GitHub">
+      <i class="czs-github"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://www.v2ex.com/member/vanwhebin" title="V2EX">
+      <i class="czs-v2ex"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/atom.xml" title="RSS 订阅">
+      <i class="czs-rss"></i>
+    </a>
+  
+
+          </p>
+          
+          <h5>友情链接</h5>
+          <p class="text-muted">
+            <small>
+              <ul class="theme-list-style-none">
+                <li><a class="text-muted" href="http://ti-node.com/">Easy-PHP</a></li><li><a class="text-muted" href="http://ti-node.com/">老李秀</a></li><li><a class="text-muted" href="https://baijunyao.com/">白俊遥</a></li><li><a class="text-muted" href="https://www.zmrenwu.com/">追梦人</a></li><li><a class="text-muted" href="https://www.kawabangga.com/">卡瓦帮噶</a></li><li><a class="text-muted" href="https://www.lylinux.net/">且听风吟</a></li><li><a class="text-muted" href="https://geektutu.com/">极客兔兔</a></li><li><a class="text-muted" href="/links">More</a></li>
+              </ul>
+            </small>
+          </p>
+          
+  </div>
+</aside>
+
+    </div>
+    <script src="/js/theme.js"></script>
+    
+
+    
+  </body>
+</html>
