@@ -1,0 +1,53 @@
+favicon: /favicon.ico
+
+post:
+  append:
+    __: post.append
+
+menu:
+  - url: /archives
+    icon: czs-folder-l
+    title: 归档
+  - url: /categories
+    icon: czs-bookmark-l
+    title: 分类
+  - url: /tags
+    icon: czs-tag-l
+    title: 标签
+  - placeholder: true
+  - url: /about
+    icon: czs-user-l
+    title: 关于我
+
+sidebar:
+  title: true
+  subtitle: true
+  description: false
+  avatar: https://avatars2.githubusercontent.com/u/8357785?s=460&u=b3972e30f52f2450a2b4e98ad30e637b021b5081&v=4
+  welcome: 这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。
+  social:
+    - url: https://github.com/vanwhebin
+      icon: czs-github
+      title: GitHub
+    - url: https://www.v2ex.com/member/vanwhebin
+      icon: czs-v2ex
+      title: V2EX
+    - url: /atom.xml
+      icon: czs-rss
+      title: RSS 订阅
+  links:
+    "Easy-PHP": http://ti-node.com/
+    "老李秀": http://ti-node.com/
+    "白俊遥": https://baijunyao.com/
+    "追梦人": https://www.zmrenwu.com/
+    "卡瓦帮噶": https://www.kawabangga.com/
+    "且听风吟": https://www.lylinux.net/
+    "极客兔兔": https://geektutu.com/
+    More: /links
+
+# disqus_shortname: xcatliu
+
+# Google Analytics
+# google_analytics: UA-45256157-6
+
+since: 2018
