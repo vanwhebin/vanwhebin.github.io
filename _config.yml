@@ -83,6 +83,7 @@ theme: maupassant
 deploy:
   type: git
   repo: https://github.com/vanwhebin/vanwhebin.github.io.git
+  branch: main
 
 # https://github.com/hexojs/hexo-generator-archive
 archive_generator:
